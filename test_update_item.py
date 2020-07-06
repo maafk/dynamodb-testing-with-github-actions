@@ -60,4 +60,8 @@ class DynamoTest(TestCase):
         # assert count was incremented by one
         self.assertEqual(200, response['statusCode'])
         # assert incremented by 1
+        self.assertEqual("1", body_response["Visit_Count"])
+
+        response2 = test_obj.update_count()
+        body_response2 = json.loads(response2["body"])
         self.assertEqual("2", body_response["Visit_Count"])
