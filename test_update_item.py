@@ -50,3 +50,14 @@ class DynamoTest(TestCase):
         self.assertEqual(200, response['statusCode'])
         # assert incremented by 1
         self.assertEqual("1", body_response["Visit_Count"])
+
+    @mock.patch('update_item.TABLE_NAME', TEST_TABLE_NAME)
+    @mock.patch('update_item.SITE_URL', TEST_SITE_URL)
+    def test_update_when_already_exists(self):
+        test_obj = UpdateItem(client)
+        response = test_obj.update_count()
+        body_response = json.loads(response["body"])
+        # assert count was incremented by one
+        self.assertEqual(200, response['statusCode'])
+        # assert incremented by 1
+        self.assertEqual("2", body_response["Visit_Count"])
