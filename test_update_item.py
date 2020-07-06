@@ -64,4 +64,4 @@ class DynamoTest(TestCase):
 
         response2 = test_obj.update_count()
         body_response2 = json.loads(response2["body"])
-        self.assertEqual("2", body_response["Visit_Count"])
+        self.assertEqual("2", body_response2["Visit_Count"])
