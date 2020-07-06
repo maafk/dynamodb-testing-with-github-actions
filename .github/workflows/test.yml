@@ -26,4 +26,6 @@ jobs:
           pip install -r requirements.txt
       - name: test
         run: python -m unittest
+        env:
+          AWS_DEFAULT_REGION: us-east-1
 
