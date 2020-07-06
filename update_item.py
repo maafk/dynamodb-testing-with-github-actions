@@ -8,12 +8,11 @@ SITE_URL = os.getenv("SITE_URL", 'example.com')
 client = None
 
 class UpdateItem(object):
-    
+
     def __init__(self, client):
         self.client = client
 
     def update_count(self):
-        print(TABLE_NAME)
         response = self.client.update_item(
             TableName=TABLE_NAME,
             Key={
